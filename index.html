@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>electron url scheme demo</title>
+</head>
+<body>
+  <div>网页端调起客户端URL scheme</div>
+  <div id="message"></div>
+  <script>
+    require('electron').ipcRenderer.on('open-url', (event, message) => {
+      document.getElementById('message').innerText = decodeURIComponent(message)
+    })
+  </script>
+</body>
+</html>
